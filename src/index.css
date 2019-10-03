@@ -48,3 +48,11 @@ h1, h2, h3, h4 {
 h4 {
   margin-top: 0px;
 }
+
+.btn {
+  margin-right: 5px;
+}
+
+.dropdown .btn {
+  margin-right: 0;
+}
