@@ -18,6 +18,7 @@ class Box extends React.Component {
             />
         )
     }
+
 }
 
 class Grid extends React.Component {
@@ -49,11 +50,12 @@ class Grid extends React.Component {
         }
 
         return (
-            <div className="grid" style={{width: width}}>
+            <div className="grid center" style={{width: width}}>
                 {rowsArr}
             </div>
         )
     }
+
 }
 
 class Buttons extends React.Component {
@@ -66,22 +68,22 @@ class Buttons extends React.Component {
         return (
             <div className="center">
                 <ButtonToolbar>
-                    <Button variant="light" onClick={this.props.playButton}>
+                    <Button variant="light" onClick = {this.props.playButton}>
                         Play
                     </Button>
-                    <Button variant="light" onClick={this.props.pauseButton}>
+                    <Button variant="light" onClick = {this.props.pauseButton}>
                         Pause
                     </Button>
-                    <Button variant="light" onClick={this.props.clear}>
+                    <Button variant="light" onClick = {this.props.clear}>
                         Clear
                     </Button>
-                    <Button variant="light" onClick={this.props.slow}>
+                    <Button variant="light" onClick = {this.props.slow}>
                         Slow
                     </Button>
-                    <Button variant="light" onClick={this.props.fast}>
+                    <Button variant="light" onClick = {this.props.fast}>
                         Fast
                     </Button>
-                    <Button variant="light" onClick={this.props.setSeed}>
+                    <Button variant="light" onClick = {this.props.setSeed}>
                         Seed
                     </Button>
                     <DropdownButton
@@ -98,6 +100,7 @@ class Buttons extends React.Component {
             </div>
         )
     }
+
 }
 
 class Main extends React.Component {
@@ -163,6 +166,7 @@ class Main extends React.Component {
 
     clear = () => {
         var grid = Array(this.rows).fill().map(() => Array(this.cols).fill(false))
+        clearInterval(this.intervalId)
         this.setState({
             gridFull: grid,
             generation: 0
@@ -258,7 +262,7 @@ class Main extends React.Component {
     render() {
         return (
             <div>
-                <h1>The Game of Life</h1>
+                <h1 className="center">The Game of Life</h1>
                 <Buttons
                     playButton = {this.playButton}
                     pauseButton = {this.pauseButton}
@@ -266,6 +270,7 @@ class Main extends React.Component {
                     fast = {this.fast}
                     clear = {this.clear}
                     speed = {this.speed}
+                    setSeed = {this.setSeed}
                     gridSize = {this.gridSize}
                 />
                 <Grid
@@ -274,10 +279,11 @@ class Main extends React.Component {
                     cols = {this.cols}
                     selectBox = {this.selectBox}
                 />
-                <h2>Generations: {this.state.generation}</h2>
+                <h2 className="center">Generation: {this.state.generation}</h2>
             </div>
         )
     }
+
 }
 
 function arrayClone(arr) {
