@@ -61,3 +61,7 @@ h4 {
 .dropdown .btn {
   margin-right: 0;
 }
+
+.dropdown-menu {
+  padding: 20px 10px 25px;
+}

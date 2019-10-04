@@ -1,7 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import { ButtonToolbar, DropdownButton, DropdownItem, Button } from 'react-bootstrap'
+import { ButtonToolbar, DropdownButton, Button } from 'react-bootstrap'
+import InputRange from 'react-input-range';
+import 'react-input-range/lib/css/index.css'
 
 class Box extends React.Component {
 
@@ -60,6 +62,12 @@ class Grid extends React.Component {
 
 class Buttons extends React.Component {
 
+    constructor(props) {
+        super(props);
+        
+        this.state = { value: 10 };
+    }
+
     handleSelect = (evt) => {
         this.props.gridSize(evt)
     }
@@ -90,11 +98,14 @@ class Buttons extends React.Component {
                         variant="light"
                         title = "Grid Size"
                         id = "size-menu"
-                        onSelect = {this.handleSelect}
                     >
-                        <DropdownItem eventKey="1">20x10</DropdownItem>
-                        <DropdownItem eventKey="2">50x30</DropdownItem>
-                        <DropdownItem eventKey="3">70x50</DropdownItem>
+                        <InputRange
+                            maxValue={20}
+                            minValue={0}
+                            value={this.state.value}
+                            onChange={value => this.setState({ value })} 
+                            onChangeComplete={value=>this.handleSelect(value)}
+                        />
                     </DropdownButton>
                 </ButtonToolbar>
             </div>
@@ -109,7 +120,7 @@ class Main extends React.Component {
         super();
         this.speed = 100;
         this.rows = 30;
-        this.cols = 50;
+        this.cols = 40;
 
         this.state = {
             generation: 0,
@@ -174,19 +185,9 @@ class Main extends React.Component {
     }
 
     gridSize = (size) => {
-        switch (size) {
-            case "1":
-                this.cols = 20;
-                this.rows = 10;
-            break;
-            case "2":
-                this.cols = 50;
-                this.rows = 30;
-            break;
-            default:
-                this.cols = 70;
-                this.rows = 50;
-        }
+        this.cols = size * 4
+        this.rows = size * 3
+
         this.clear()
     }
 
