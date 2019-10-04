@@ -15,7 +15,7 @@ class Box extends React.Component {
         return(
             <div
                 className={this.props.boxClass}
-                id={this.props.id}
+                id={this.props.boxID}
                 onClick={this.selectBox}
             />
         )
@@ -30,13 +30,13 @@ class Grid extends React.Component {
         const width = this.props.cols * 14;
         var rowsArr = []
 
-        var boxClass = "";
+        var boxClass = ""
 
         for (var i=0; i<this.props.rows; i++) {
             for (var j=0; j<this.props.cols; j++) {
-                let boxID = i + "_" + j;
+                let boxID = i + "_" + j
 
-                boxClass = this.props.gridFull[i][j] ? "box on" : "box off";
+                boxClass = this.props.gridFull[i][j] ? "box on" : "box off"
 
                 rowsArr.push(
                     <Box
@@ -65,7 +65,7 @@ class Buttons extends React.Component {
     constructor(props) {
         super(props);
         
-        this.state = { value: 10 };
+        this.state = { value: 10 }
     }
 
     handleSelect = (evt) => {
@@ -74,7 +74,10 @@ class Buttons extends React.Component {
 
     render() {
         return (
-            <div className="center">
+            <div className="buttons">
+                <div class="indicator">
+                    
+                </div>
                 <ButtonToolbar>
                     <Button variant="light" onClick = {this.props.playButton}>
                         Play
@@ -100,8 +103,8 @@ class Buttons extends React.Component {
                         id = "size-menu"
                     >
                         <InputRange
-                            maxValue={20}
-                            minValue={0}
+                            maxValue={15}
+                            minValue={1}
                             value={this.state.value}
                             onChange={value => this.setState({ value })} 
                             onChangeComplete={value=>this.handleSelect(value)}
@@ -118,9 +121,9 @@ class Main extends React.Component {
 
     constructor() {
         super();
-        this.speed = 100;
-        this.rows = 30;
-        this.cols = 40;
+        this.speed = 100
+        this.rows = 30
+        this.cols = 50
 
         this.state = {
             generation: 0,
@@ -185,7 +188,7 @@ class Main extends React.Component {
     }
 
     gridSize = (size) => {
-        this.cols = size * 4
+        this.cols = size * 5
         this.rows = size * 3
 
         this.clear()
