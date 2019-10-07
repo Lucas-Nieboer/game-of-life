@@ -1,121 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import { ButtonToolbar, DropdownButton, Button } from 'react-bootstrap'
-import InputRange from 'react-input-range';
 import 'react-input-range/lib/css/index.css'
-
-class Box extends React.Component {
-
-    selectBox = () => {
-        this.props.selectBox(this.props.row, this.props.col)
-    }
-
-    render() {
-        return(
-            <div
-                className={this.props.boxClass}
-                id={this.props.boxID}
-                onClick={this.selectBox}
-            />
-        )
-    }
-
-}
-
-class Grid extends React.Component {
-
-    render() {
-        
-        const width = this.props.cols * 14;
-        var rowsArr = []
-
-        var boxClass = ""
-
-        for (var i=0; i<this.props.rows; i++) {
-            for (var j=0; j<this.props.cols; j++) {
-                let boxID = i + "_" + j
-
-                boxClass = this.props.gridFull[i][j] ? "box on" : "box off"
-
-                rowsArr.push(
-                    <Box
-                        boxClass = {boxClass}
-                        key = {boxID}
-                        boxID = {boxID}
-                        row = {i}
-                        col = {j}
-                        selectBox = {this.props.selectBox}
-                    />
-                )
-            }
-        }
-
-        return (
-            <div className="grid center" style={{width: width}}>
-                {rowsArr}
-            </div>
-        )
-    }
-
-}
-
-class Buttons extends React.Component {
-
-    constructor(props) {
-        super(props);
-        
-        this.state = { value: 10 }
-    }
-
-    handleSelect = (evt) => {
-        this.props.gridSize(evt)
-    }
-
-    render() {
-        return (
-            <div className="buttons">
-                <div class="indicator">
-                    
-                </div>
-                <ButtonToolbar>
-                    <Button variant="light" onClick = {this.props.playButton}>
-                        Play
-                    </Button>
-                    <Button variant="light" onClick = {this.props.pauseButton}>
-                        Pause
-                    </Button>
-                    <Button variant="light" onClick = {this.props.clear}>
-                        Clear
-                    </Button>
-                    <Button variant="light" onClick = {this.props.slow}>
-                        Slow
-                    </Button>
-                    <Button variant="light" onClick = {this.props.fast}>
-                        Fast
-                    </Button>
-                    <Button variant="light" onClick = {this.props.setSeed}>
-                        Seed
-                    </Button>
-                    <DropdownButton
-                        variant="light"
-                        title = "Grid Size"
-                        id = "size-menu"
-                    >
-                        <InputRange
-                            maxValue={15}
-                            minValue={1}
-                            value={this.state.value}
-                            onChange={value => this.setState({ value })} 
-                            onChangeComplete={value=>this.handleSelect(value)}
-                        />
-                    </DropdownButton>
-                </ButtonToolbar>
-            </div>
-        )
-    }
-
-}
+import Grid from './components/grid'
+import Buttons from './components/buttons'
 
 class Main extends React.Component {
 
@@ -166,7 +54,7 @@ class Main extends React.Component {
 
         for (let i=0; i<this.rows; i++) {
             for (let j=0; j<this.cols; j++) {
-                if (Math.floor(Math.random() * 4) === 1) {
+                if (Math.floor(Math.random() * 5) === 1) {
                     gridCopy[i][j] = true
                 }
             }
