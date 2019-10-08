@@ -77,8 +77,7 @@ class Main extends React.Component {
     }
 
     gameSpeed = (rspeed) => {
-        this.speed = rspeed * 10
-        this.playButton()
+        this.speed = rspeed * 50
     }
 
     play = () => {

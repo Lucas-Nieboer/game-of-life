@@ -40,7 +40,7 @@ class Buttons extends React.Component {
                     <div className="drop-down-item">
                         <span>Speed</span>
                         <InputRange
-                            maxValue={15}
+                            maxValue={10}
                             minValue={1}
                             value={this.state.svalue}
                             onChange={svalue => this.setState({ svalue })} 
