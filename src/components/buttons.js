@@ -5,7 +5,7 @@ import InputRange from 'react-input-range'
 class Buttons extends React.Component {
 
     constructor(props) {
-        super(props);
+        super(props)
         
         this.state = { value: 10 }
     }
@@ -17,7 +17,7 @@ class Buttons extends React.Component {
     render() {
         return (
             <div className="buttons">
-                <div class="indicator">
+                <div className="indicator">
                     
                 </div>
                 <ButtonToolbar>

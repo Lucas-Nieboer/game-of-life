@@ -20,15 +20,16 @@ body {
 }
 
 .off {
-  background-color: rgba(250,246,242, .75);
+  background-color: #e2ecf8;
 }
 
 .on {
-  background-color: #2E8B57;
+  background: transparent;
+  background: radial-gradient(circle, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 95%, rgba(0,0,0,1) 100%);
 }
   
 .box:hover { 
-  background: #00CCFF;
+  background: #00CCFF !important;
 }
 
 .center {
@@ -40,6 +41,7 @@ body {
   width: 150px;
   line-height: 0;
   box-shadow: 0px 0px 10px #FFFFFF;
+  transition: all .5s ease;
 }
   
 h1, h2, h3, h4 {

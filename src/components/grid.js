@@ -30,12 +30,11 @@ class Grid extends React.Component {
         }
 
         return (
-            <div className="grid center" style={{width: width}}>
+            <div className="grid center" style={{width: width, backgroundColor:this.props.boxColor}}>
                 {rowsArr}
             </div>
         )
     }
-
 }
 
 export default Grid

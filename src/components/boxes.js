@@ -7,11 +7,12 @@ class Box extends React.Component {
     }
 
     render() {
+
         return(
             <div
-                className={this.props.boxClass}
-                id={this.props.boxID}
-                onClick={this.selectBox}
+                className = {this.props.boxClass}
+                id = {this.props.boxID}
+                onClick = {this.selectBox}
             />
         )
     }

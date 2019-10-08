@@ -8,14 +8,17 @@ import Buttons from './components/buttons'
 class Main extends React.Component {
 
     constructor() {
-        super();
+
+        super()
         this.speed = 100
         this.rows = 30
         this.cols = 50
 
         this.state = {
             generation: 0,
-            gridFull: Array(this.rows).fill().map(() => Array(this.cols).fill(false))
+            gridFull: Array(this.rows).fill().map(() => Array(this.cols).fill(false)),
+            initialBoxColor: '#2E8B57',
+            boxColor: ''
         }
     }
 
@@ -31,7 +34,7 @@ class Main extends React.Component {
 
     playButton = () => {
         clearInterval(this.intervalId)
-        this.intervalId = setInterval(this.play, this.speed);
+        this.intervalId = setInterval(this.play, this.speed)
     }
 
     pauseButton = () => {
@@ -71,7 +74,8 @@ class Main extends React.Component {
         clearInterval(this.intervalId)
         this.setState({
             gridFull: grid,
-            generation: 0
+            generation: 0,
+            boxColor: this.state.initialBoxColor
         })
     }
 
@@ -141,6 +145,14 @@ class Main extends React.Component {
             }
         }
 
+        if(this.state.generation % 50 === 0 && this.state.generation !== 0) {
+            var newBoxColor = '#'+Math.floor(Math.random()*16777215).toString(16)
+
+            this.setState({
+                boxColor: newBoxColor
+            })
+        }
+
         this.setState({
             gridFull: g2,
             generation: this.state.generation + 1
@@ -149,6 +161,10 @@ class Main extends React.Component {
 
     componentDidMount() {
         this.setSeed()
+
+        this.setState({
+            boxColor: this.state.initialBoxColor
+        })
     }
 
     render() {
@@ -170,16 +186,17 @@ class Main extends React.Component {
                     rows = {this.rows}
                     cols = {this.cols}
                     selectBox = {this.selectBox}
+                    generation = {this.state.generation}
+                    boxColor = {this.state.boxColor}
                 />
                 <h2 className="center">Generation: {this.state.generation}</h2>
             </div>
         )
     }
-
 }
 
 function arrayClone(arr) {
     return JSON.parse(JSON.stringify(arr))
 }
 
-ReactDOM.render(<Main />, document.getElementById('root'));
+ReactDOM.render(<Main />, document.getElementById('root'))
