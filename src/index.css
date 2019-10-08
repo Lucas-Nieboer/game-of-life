@@ -1,13 +1,52 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
 body {
-  background-image: linear-gradient(246deg, rgba(234, 234, 234, 0.04) 0%, rgba(234, 234, 234, 0.04) 33.3%,rgba(69, 69, 69, 0.04) 33.3%, rgba(69, 69, 69, 0.04) 66.6%,rgba(189, 189, 189, 0.04) 66.6%, rgba(189, 189, 189, 0.04) 99.89999999999999%),linear-gradient(81deg, rgba(126, 126, 126, 0.05) 0%, rgba(126, 126, 126, 0.05) 33.3%,rgba(237, 237, 237, 0.05) 33.3%, rgba(237, 237, 237, 0.05) 66.6%,rgba(74, 74, 74, 0.05) 66.6%, rgba(74, 74, 74, 0.05) 99.89999999999999%),linear-gradient(14deg, rgba(3, 3, 3, 0.08) 0%, rgba(3, 3, 3, 0.08) 33.3%,rgba(156, 156, 156, 0.08) 33.3%, rgba(156, 156, 156, 0.08) 66.6%,rgba(199, 199, 199, 0.08) 66.6%, rgba(199, 199, 199, 0.08) 99.89999999999999%),linear-gradient(323deg, rgba(82, 82, 82, 0.06) 0%, rgba(82, 82, 82, 0.06) 33.3%,rgba(179, 179, 179, 0.06) 33.3%, rgba(179, 179, 179, 0.06) 66.6%,rgba(212, 212, 212, 0.06) 66.6%, rgba(212, 212, 212, 0.06) 99.89999999999999%),linear-gradient(32deg, rgba(70, 70, 70, 0.02) 0%, rgba(70, 70, 70, 0.02) 33.3%,rgba(166, 166, 166, 0.02) 33.3%, rgba(166, 166, 166, 0.02) 66.6%,rgba(53, 53, 53, 0.02) 66.6%, rgba(53, 53, 53, 0.02) 99.89999999999999%),linear-gradient(38deg, rgba(129, 129, 129, 0.09) 0%, rgba(129, 129, 129, 0.09) 33.3%,rgba(38, 38, 38, 0.09) 33.3%, rgba(38, 38, 38, 0.09) 66.6%,rgba(153, 153, 153, 0.09) 66.6%, rgba(153, 153, 153, 0.09) 99.89999999999999%),linear-gradient(63deg, rgba(51, 51, 51, 0.02) 0%, rgba(51, 51, 51, 0.02) 33.3%,rgba(12, 12, 12, 0.02) 33.3%, rgba(12, 12, 12, 0.02) 66.6%,rgba(158, 158, 158, 0.02) 66.6%, rgba(158, 158, 158, 0.02) 99.89999999999999%),linear-gradient(227deg, rgba(63, 63, 63, 0.03) 0%, rgba(63, 63, 63, 0.03) 33.3%,rgba(9, 9, 9, 0.03) 33.3%, rgba(9, 9, 9, 0.03) 66.6%,rgba(85, 85, 85, 0.03) 66.6%, rgba(85, 85, 85, 0.03) 99.89999999999999%),linear-gradient(103deg, rgba(247, 247, 247, 0.07) 0%, rgba(247, 247, 247, 0.07) 33.3%,rgba(93, 93, 93, 0.07) 33.3%, rgba(93, 93, 93, 0.07) 66.6%,rgba(208, 208, 208, 0.07) 66.6%, rgba(208, 208, 208, 0.07) 99%),linear-gradient(0deg, #0b91d7,#6efc29);
-  background-repeat: no-repeat; 
-	background-position: center center;
-	background-attachment: fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  padding: 20px;
+	line-height: 1;
+}
+ol, ul {
+  margin-top: 0;
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+html, body, #root, .grid-holder, .game-container {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
 }
   
 .box {
@@ -32,9 +71,20 @@ body {
   background: #00CCFF !important;
 }
 
-.center {
-  margin: 20px auto;
-  display: table;
+.grid-holder {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: linear-gradient(246deg, rgba(234, 234, 234, 0.04) 0%, rgba(234, 234, 234, 0.04) 33.3%,rgba(69, 69, 69, 0.04) 33.3%, rgba(69, 69, 69, 0.04) 66.6%,rgba(189, 189, 189, 0.04) 66.6%, rgba(189, 189, 189, 0.04) 99.89999999999999%),linear-gradient(81deg, rgba(126, 126, 126, 0.05) 0%, rgba(126, 126, 126, 0.05) 33.3%,rgba(237, 237, 237, 0.05) 33.3%, rgba(237, 237, 237, 0.05) 66.6%,rgba(74, 74, 74, 0.05) 66.6%, rgba(74, 74, 74, 0.05) 99.89999999999999%),linear-gradient(14deg, rgba(3, 3, 3, 0.08) 0%, rgba(3, 3, 3, 0.08) 33.3%,rgba(156, 156, 156, 0.08) 33.3%, rgba(156, 156, 156, 0.08) 66.6%,rgba(199, 199, 199, 0.08) 66.6%, rgba(199, 199, 199, 0.08) 99.89999999999999%),linear-gradient(323deg, rgba(82, 82, 82, 0.06) 0%, rgba(82, 82, 82, 0.06) 33.3%,rgba(179, 179, 179, 0.06) 33.3%, rgba(179, 179, 179, 0.06) 66.6%,rgba(212, 212, 212, 0.06) 66.6%, rgba(212, 212, 212, 0.06) 99.89999999999999%),linear-gradient(32deg, rgba(70, 70, 70, 0.02) 0%, rgba(70, 70, 70, 0.02) 33.3%,rgba(166, 166, 166, 0.02) 33.3%, rgba(166, 166, 166, 0.02) 66.6%,rgba(53, 53, 53, 0.02) 66.6%, rgba(53, 53, 53, 0.02) 99.89999999999999%),linear-gradient(38deg, rgba(129, 129, 129, 0.09) 0%, rgba(129, 129, 129, 0.09) 33.3%,rgba(38, 38, 38, 0.09) 33.3%, rgba(38, 38, 38, 0.09) 66.6%,rgba(153, 153, 153, 0.09) 66.6%, rgba(153, 153, 153, 0.09) 99.89999999999999%),linear-gradient(63deg, rgba(51, 51, 51, 0.02) 0%, rgba(51, 51, 51, 0.02) 33.3%,rgba(12, 12, 12, 0.02) 33.3%, rgba(12, 12, 12, 0.02) 66.6%,rgba(158, 158, 158, 0.02) 66.6%, rgba(158, 158, 158, 0.02) 99.89999999999999%),linear-gradient(227deg, rgba(63, 63, 63, 0.03) 0%, rgba(63, 63, 63, 0.03) 33.3%,rgba(9, 9, 9, 0.03) 33.3%, rgba(9, 9, 9, 0.03) 66.6%,rgba(85, 85, 85, 0.03) 66.6%, rgba(85, 85, 85, 0.03) 99.89999999999999%),linear-gradient(103deg, rgba(247, 247, 247, 0.07) 0%, rgba(247, 247, 247, 0.07) 33.3%,rgba(93, 93, 93, 0.07) 33.3%, rgba(93, 93, 93, 0.07) 66.6%,rgba(208, 208, 208, 0.07) 66.6%, rgba(208, 208, 208, 0.07) 99%),linear-gradient(0deg, #0b91d7,#6efc29);
+  background-repeat: no-repeat; 
+	background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  left: 0;
+  transition: left .75s ease;
 }
 
 .grid {
@@ -43,27 +93,49 @@ body {
   box-shadow: 0px 0px 10px #FFFFFF;
   transition: all .5s ease;
 }
-  
-h1, h2, h3, h4 {
+
+.header {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  width: 500px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,.7);
+  border:2px solid #000000;
+  border-top: 0;
+  padding: 15px 10px;
+  border-radius: 0 0 10px 10px;
   color: #FFFFFF;
-  margin: auto;
   text-align: center;
-  width: 50%;
-  margin-top: 10px;
+  font-size: 30px;
+  font-family: 'Poiret One', cursive;
 }
 
 h4 {
   margin-top: 0px;
 }
 
+.game-container {
+  position: relative;
+  width: calc(100%);
+}
+
 .buttons {
   position: absolute;
-  width: 125px;
-  left: -125px;
+  width: 230px;
   height: 100%;
   top: 0;
-  background-color: #140a17;
+  left: -200px;
+  background: #708090;
+  background-image: url(images/chalkdust.png);
+  background-repeat: no-repeat;
+  background-size: 450% 200%;
   transition: left .75s ease;
+  z-index: 1;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 0px 0px 6px #333333;
 }
 
 .buttons:hover {
@@ -73,30 +145,54 @@ h4 {
 .buttons .btn, .buttons .dropdown {
   width:100%;
   border-radius: 0;
-  background-color: #140a17;
+  background: transparent;
   color: #FFF;
   border: 0;
   font-size: 18px;
-  padding: 20px 0 20px 15px;
+  padding: 20px 30px 20px 15px;
   text-align: left;
 }
-.buttons .dropdown {
-  padding: 0;
-}
-.buttons .btn:not(:disabled):not(.disabled):active, .buttons .dropdown:not(:disabled):not(.disabled):active, .show>.btn-light.dropdown-toggle {
-  background-color: #140a17;
+
+.buttons .btn:not(:disabled):not(.disabled):active {
+  background-color: transparent;
   color: #FFF;
   border: 0;
 }
-.buttons .btn:not(:disabled):not(.disabled):active:focus, .show>.btn-light.dropdown-toggle:not(:disabled):not(.disabled):active:focus {
-  box-shadow: none;
-}
-.btn-light.focus, .btn-light:focus, .show>.btn-light.dropdown-toggle.focus, .show>.btn-light.dropdown-toggle:focus {
+
+.buttons .btn:not(:disabled):not(.disabled):active:focus, .btn-light.focus, .btn-light:focus {
   box-shadow: none;
 }
 
-.dropdown-menu {
-  padding: 20px 10px 25px;
+.drop-down-item {
+  width: 100%;
+  padding: 20px 40px 20px 15px;
+  height: 67px;
+  transition: all .25s ease-in;
+}
+
+.drop-down-item:hover {
+  height: 100px;
+}
+
+.drop-down-item:hover > .input-range {
+  visibility: visible;
+  opacity: 1;
+}
+
+.drop-down-item span {
+  font-size: 18px;
+  color: #FFF;
+}
+
+.drop-down-item span:hover {
+  cursor: pointer;
+}
+
+.drop-down-item .input-range {
+  margin-top: 25px;
+  transition: all .5s ease;
+  opacity: 0;
+  visibility: collapse;
 }
 
 .btn-toolbar {
@@ -109,10 +205,9 @@ h4 {
   position: absolute;
   height: 100%;
   width: 30px;
-  right: -30px;
-  background-color: #140a17;
-  border-radius: 0 10px 10px 0;
+  right: 0;
   top: 0;
+  z-index: 1;
 }
 
 .indicator:after {

@@ -41,16 +41,6 @@ class Main extends React.Component {
         clearInterval(this.intervalId)
     }
 
-    slow = () => {
-        this.speed = 1000
-        this.playButton()
-    }
-
-    fast = () => {
-        this.speed = 100
-        this.playButton()
-    }
-
     setSeed = () => {
 
         let gridCopy = arrayClone(this.state.gridFull)
@@ -84,6 +74,11 @@ class Main extends React.Component {
         this.rows = size * 3
 
         this.clear()
+    }
+
+    gameSpeed = (rspeed) => {
+        this.speed = rspeed * 10
+        this.playButton()
     }
 
     play = () => {
@@ -169,27 +164,28 @@ class Main extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1 className="center">The Game of Life</h1>
+            <div class="game-container">
+                <div className="header">
+                    <h2>Conway's Game of Life</h2>
+                </div>
                 <Buttons
                     playButton = {this.playButton}
                     pauseButton = {this.pauseButton}
-                    slow = {this.slow}
-                    fast = {this.fast}
                     clear = {this.clear}
-                    speed = {this.speed}
+                    gameSpeed = {this.gameSpeed}
                     setSeed = {this.setSeed}
                     gridSize = {this.gridSize}
                 />
-                <Grid
-                    gridFull = {this.state.gridFull}
-                    rows = {this.rows}
-                    cols = {this.cols}
-                    selectBox = {this.selectBox}
-                    generation = {this.state.generation}
-                    boxColor = {this.state.boxColor}
-                />
-                <h2 className="center">Generation: {this.state.generation}</h2>
+                <div className="grid-holder">
+                    <Grid
+                        gridFull = {this.state.gridFull}
+                        rows = {this.rows}
+                        cols = {this.cols}
+                        selectBox = {this.selectBox}
+                        generation = {this.state.generation}
+                        boxColor = {this.state.boxColor}
+                    />
+                </div>
             </div>
         )
     }
