@@ -12,7 +12,16 @@ class Buttons extends React.Component {
         this.state = { 
             gsvalue: 10,
             svalue: 10,
+            rrvalue: this.props.randomSpeed
         }
+    }
+
+    handleRenderSpeed = (evt) => {
+        this.props.gameSpeed(evt)
+    }
+
+    handleGridSize = (evt) => {
+        this.props.gridSize(evt)
     }
 
     handleColorChange = (evt) => {
@@ -24,12 +33,8 @@ class Buttons extends React.Component {
         this.props.setRandColorState(evt)
     }
 
-    handleRenderSpeed = (evt) => {
-        this.props.gameSpeed(evt)
-    }
-
-    handleGridSize = (evt) => {
-        this.props.gridSize(evt)
+    handleRandomColorRate = (evt) => {
+        this.props.setRandColorSpeed(evt)
     }
 
     render() {
@@ -76,7 +81,7 @@ class Buttons extends React.Component {
                             onChangeComplete={ this.handleColorChange }
                         />
 
-                        <span>Randomize Colors</span>
+                        <span>Allow Random</span>
                         <label htmlFor="material-switch">
                         <Switch
                             checked={this.props.colorRandinit}
@@ -95,6 +100,14 @@ class Buttons extends React.Component {
                             aria-label="Color Change"
                         />
                         </label>
+                        <span>Random Rate</span>
+                        <InputRange
+                            maxValue={50}
+                            minValue={5}
+                            value={this.state.rrvalue}
+                            onChange={rrvalue => this.setState({ rrvalue })} 
+                            onChangeComplete={rrvalue => this.handleRandomColorRate(rrvalue)}
+                        />
                     </div>
                 </ButtonToolbar>
             </div>

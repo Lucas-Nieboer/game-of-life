@@ -20,7 +20,8 @@ class Main extends React.Component {
             initialBoxColor: '#2E8B57',
             boxColor: '',
             colorRand: true,
-            playing: false
+            playing: false,
+            randomSpeed: 50
         }
     }
 
@@ -106,6 +107,13 @@ class Main extends React.Component {
         })
     }
 
+    setRandColorSpeed = (rs) => {
+
+        this.setState({
+            randomSpeed: rs
+        })
+    }
+
     play = () => {
         
         let g = this.state.gridFull
@@ -165,7 +173,7 @@ class Main extends React.Component {
             }
         }
 
-        if(this.state.generation % 50 === 0 && this.state.generation !== 0 && this.state.colorRand) {
+        if(this.state.generation % this.state.randomSpeed === 0 && this.state.generation !== 0 && this.state.colorRand) {
             var newBoxColor = '#'+Math.floor(Math.random()*16777215).toString(16)
 
             this.setState({
@@ -205,6 +213,8 @@ class Main extends React.Component {
                     colorRandinit = {this.state.colorRand}
                     setRandColorState = {this.setRandColorState}
                     isPlaying = {this.state.playing}
+                    randomSpeed = {this.state.randomSpeed}
+                    setRandColorSpeed = {this.setRandColorSpeed}
                 />
                 <div className="grid-holder">
                     <Grid

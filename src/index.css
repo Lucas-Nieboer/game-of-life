@@ -46,7 +46,7 @@ table {
 html, body, #root, .grid-holder, .game-container {
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
 }
   
 .box {
@@ -179,17 +179,19 @@ h4 {
 }
 
 .drop-down-item.color-options:hover {
-  height: 230px;
+  height: 335px;
 }
 
 .drop-down-item:hover > .input-range, .drop-down-item:hover > .slider-picker, .drop-down-item:hover .react-switch, .drop-down-item:hover span:not(:first-of-type) {
   visibility: visible;
   opacity: 1;
+  display: block;
 }
 
 .drop-down-item span {
   font-size: 18px;
   color: #FFF;
+  display: block;
 }
 
 .drop-down-item span:hover {
@@ -201,6 +203,7 @@ h4 {
   transition: all .5s ease;
   opacity: 0;
   visibility: collapse;
+  display: none;
 }
 
 .drop-down-item .slider-picker {
