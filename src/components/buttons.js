@@ -1,6 +1,8 @@
 import React from 'react'
 import { ButtonToolbar, Button } from 'react-bootstrap'
 import InputRange from 'react-input-range'
+import { SliderPicker } from 'react-color'
+import Switch from "react-switch"
 
 class Buttons extends React.Component {
 
@@ -9,15 +11,25 @@ class Buttons extends React.Component {
         
         this.state = { 
             gsvalue: 10,
-            svalue: 10
+            svalue: 10,
         }
     }
 
-    handleSelect = (evt) => {
-        this.props.gridSize(evt)
+    handleColorChange = (evt) => {
+        this.props.setColor(evt.hex)
     }
-    handleSelect2 = (evt) => {
+
+    handleRandomColor = (evt) => {
+        this.setState({ evt })
+        this.props.setRandColorState(evt)
+    }
+
+    handleRenderSpeed = (evt) => {
         this.props.gameSpeed(evt)
+    }
+
+    handleGridSize = (evt) => {
+        this.props.gridSize(evt)
     }
 
     render() {
@@ -25,14 +37,14 @@ class Buttons extends React.Component {
             <div className="buttons">
                 <div className="indicator" />
                 <ButtonToolbar>
-                    <Button variant="light" onClick = {this.props.playButton}>
+                    <Button variant="light" onClick = {this.props.playButton} disabled = {this.props.isPlaying}>
                         Play
+                    </Button>
+                    <Button variant="light" onClick = {this.props.pauseButton} disabled = {!this.props.isPlaying}>
+                        Pause
                     </Button>
                     <Button variant="light" onClick = {this.props.setSeed}>
                         Seed
-                    </Button>
-                    <Button variant="light" onClick = {this.props.pauseButton}>
-                        Pause
                     </Button>
                     <Button variant="light" onClick = {this.props.clear}>
                         Clear
@@ -44,7 +56,7 @@ class Buttons extends React.Component {
                             minValue={1}
                             value={this.state.svalue}
                             onChange={svalue => this.setState({ svalue })} 
-                            onChangeComplete={svalue=>this.handleSelect2(svalue)}
+                            onChangeComplete={svalue=>this.handleRenderSpeed(svalue)}
                         />
                     </div>
                     <div className="drop-down-item">
@@ -54,8 +66,35 @@ class Buttons extends React.Component {
                             minValue={1}
                             value={this.state.gsvalue}
                             onChange={gsvalue => this.setState({ gsvalue })} 
-                            onChangeComplete={gsvalue=>this.handleSelect(gsvalue)}
+                            onChangeComplete={gsvalue=>this.handleGridSize(gsvalue)}
                         />
+                    </div>
+                    <div className="drop-down-item color-options">
+                        <span>Color Options</span>
+                        <SliderPicker 
+                            color={ this.props.initialBoxColor }
+                            onChangeComplete={ this.handleColorChange }
+                        />
+
+                        <span>Randomize Colors</span>
+                        <label htmlFor="material-switch">
+                        <Switch
+                            checked={this.props.colorRandinit}
+                            onChange={this.handleRandomColor}
+                            onColor="#86d3ff"
+                            onHandleColor="#2693e6"
+                            handleDiameter={30}
+                            uncheckedIcon={false}
+                            checkedIcon={false}
+                            boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
+                            activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
+                            height={20}
+                            width={48}
+                            className="react-switch"
+                            id="material-switch"
+                            aria-label="Color Change"
+                        />
+                        </label>
                     </div>
                 </ButtonToolbar>
             </div>

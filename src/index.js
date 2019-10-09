@@ -18,7 +18,9 @@ class Main extends React.Component {
             generation: 0,
             gridFull: Array(this.rows).fill().map(() => Array(this.cols).fill(false)),
             initialBoxColor: '#2E8B57',
-            boxColor: ''
+            boxColor: '',
+            colorRand: true,
+            playing: false
         }
     }
 
@@ -35,10 +37,18 @@ class Main extends React.Component {
     playButton = () => {
         clearInterval(this.intervalId)
         this.intervalId = setInterval(this.play, this.speed)
+        
+        this.setState({
+            playing: true
+        })
     }
 
     pauseButton = () => {
         clearInterval(this.intervalId)
+
+        this.setState({
+            playing: false
+        })
     }
 
     setSeed = () => {
@@ -65,7 +75,8 @@ class Main extends React.Component {
         this.setState({
             gridFull: grid,
             generation: 0,
-            boxColor: this.state.initialBoxColor
+            boxColor: this.state.initialBoxColor,
+            playing: false
         })
     }
 
@@ -78,6 +89,21 @@ class Main extends React.Component {
 
     gameSpeed = (rspeed) => {
         this.speed = rspeed * 50
+    }
+
+    setColor = (newColor) => {
+
+        this.setState({
+            initialBoxColor: newColor,
+            boxColor: newColor
+        })
+    }
+
+    setRandColorState = (tf) => {
+
+        this.setState({
+            colorRand: tf
+        })
     }
 
     play = () => {
@@ -139,7 +165,7 @@ class Main extends React.Component {
             }
         }
 
-        if(this.state.generation % 50 === 0 && this.state.generation !== 0) {
+        if(this.state.generation % 50 === 0 && this.state.generation !== 0 && this.state.colorRand) {
             var newBoxColor = '#'+Math.floor(Math.random()*16777215).toString(16)
 
             this.setState({
@@ -171,9 +197,14 @@ class Main extends React.Component {
                     playButton = {this.playButton}
                     pauseButton = {this.pauseButton}
                     clear = {this.clear}
+                    setColor = {this.setColor}
                     gameSpeed = {this.gameSpeed}
                     setSeed = {this.setSeed}
                     gridSize = {this.gridSize}
+                    initialBoxColor = {this.state.initialBoxColor}
+                    colorRandinit = {this.state.colorRand}
+                    setRandColorState = {this.setRandColorState}
+                    isPlaying = {this.state.playing}
                 />
                 <div className="grid-holder">
                     <Grid
