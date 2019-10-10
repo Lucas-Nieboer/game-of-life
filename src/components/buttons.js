@@ -11,7 +11,7 @@ class Buttons extends React.Component {
         
         this.state = { 
             gsvalue: 10,
-            svalue: 10,
+            svalue: 7,
             rrvalue: this.props.randomSpeed
         }
     }

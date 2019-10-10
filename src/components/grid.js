@@ -30,7 +30,7 @@ class Grid extends React.Component {
         }
 
         return (
-            <div className="grid center" style={{width: width, backgroundColor:this.props.boxColor}}>
+            <div className="grid" style={{width: width, backgroundColor:this.props.boxColor}}>
                 {rowsArr}
             </div>
         )

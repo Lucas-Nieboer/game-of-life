@@ -113,6 +113,23 @@ html, body, #root, .grid-holder, .game-container {
   font-family: 'Poiret One', cursive;
 }
 
+.gen-counter {
+  top: auto;
+  bottom: 0;
+  border-radius: 10px 10px 0 0;
+}
+.gen-counter div {
+  display: inline-block;
+}
+.gen-counter div:first-of-type {
+  text-align: right;
+  margin-right: 2%;
+}
+.gen-counter div:last-of-type {
+  text-align: left;
+  min-width: 20%;
+}
+
 h4 {
   margin-top: 0px;
 }

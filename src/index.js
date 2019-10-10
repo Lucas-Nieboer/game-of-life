@@ -10,7 +10,7 @@ class Main extends React.Component {
     constructor() {
 
         super()
-        this.speed = 100
+        this.speed = 160
         this.rows = 30
         this.cols = 50
 
@@ -94,7 +94,9 @@ class Main extends React.Component {
 
     gameSpeed = (rspeed) => {
 
-        this.speed = rspeed * 50
+        var speedArray = [0,10,9,8,7,6,5,4,3,2,1]
+
+        this.speed = speedArray[rspeed] * 40
 
         if (this.state.playing) {
             clearInterval(this.intervalId)
@@ -236,8 +238,12 @@ class Main extends React.Component {
                         boxColor = {this.state.boxColor}
                     />
                 </div>
+                <div className="header gen-counter">
+                    <div>Generation: </div>
+                    <div>{this.state.generation}</div>
+                </div>
                 <div className="learn-more">
-                    <p className="">
+                    <p>
                         <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target="_blank" rel="noopener noreferrer">Learn More about Conway's Game of Life</a>
                     </p>
                 </div>
