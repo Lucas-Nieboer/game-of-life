@@ -36,6 +36,7 @@ class Main extends React.Component {
     }
 
     playButton = () => {
+
         clearInterval(this.intervalId)
         this.intervalId = setInterval(this.play, this.speed)
         
@@ -45,6 +46,7 @@ class Main extends React.Component {
     }
 
     pauseButton = () => {
+
         clearInterval(this.intervalId)
 
         this.setState({
@@ -71,6 +73,7 @@ class Main extends React.Component {
     }
 
     clear = () => {
+
         var grid = Array(this.rows).fill().map(() => Array(this.cols).fill(false))
         clearInterval(this.intervalId)
         this.setState({
@@ -82,6 +85,7 @@ class Main extends React.Component {
     }
 
     gridSize = (size) => {
+
         this.cols = size * 5
         this.rows = size * 3
 
@@ -89,7 +93,13 @@ class Main extends React.Component {
     }
 
     gameSpeed = (rspeed) => {
+
         this.speed = rspeed * 50
+
+        if (this.state.playing) {
+            clearInterval(this.intervalId)
+            this.intervalId = setInterval(this.play, this.speed)
+        }
     }
 
     setColor = (newColor) => {
@@ -225,6 +235,11 @@ class Main extends React.Component {
                         generation = {this.state.generation}
                         boxColor = {this.state.boxColor}
                     />
+                </div>
+                <div className="learn-more">
+                    <p className="">
+                        <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target="_blank" rel="noopener noreferrer">Learn More about Conway's Game of Life</a>
+                    </p>
                 </div>
             </div>
         )

@@ -241,3 +241,15 @@ h4 {
   transform: translate(0, -50%);
   left: 8px;
 }
+
+.learn-more {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px 20px;
+}
+
+.learn-more a  {
+  color: #FFFFFF;
+  font-family: 'Montserrat', sans-serif;
+}
