@@ -64,7 +64,7 @@ html, body, #root, .grid-holder, .game-container {
 
 .on {
   background: transparent;
-  background: radial-gradient(circle, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 95%, rgba(0,0,0,1) 100%);
+  background: radial-gradient(circle, rgba(255,255,255,0) 0%, rgba(0,0,0,.5) 95%, rgba(0,0,0,1) 100%);
 }
   
 .box:hover { 
@@ -136,6 +136,10 @@ h4 {
   z-index: 1;
   font-family: 'Montserrat', sans-serif;
   box-shadow: 0px 0px 6px #333333;
+}
+
+.drop-down-item .input-range {
+  width: 95%;
 }
 
 .buttons:hover {
@@ -213,7 +217,7 @@ h4 {
 .btn-toolbar {
   position: relative;
   top: 50%;
-  transform: translate(0, -50%)
+  transform: translate(0, -50%);
 }
 
 .indicator {
