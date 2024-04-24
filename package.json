@@ -4,7 +4,7 @@
   "homepage": "https://lucas-nieboer.github.io/game-of-life/",
   "private": true,
   "dependencies": {
-    "gh-pages": "^2.1.1",
+    "gh-pages": "^5.0.0",
     "react": "^16.10.1",
     "react-bootstrap": "^1.0.0-beta.12",
     "react-color": "^2.17.3",
